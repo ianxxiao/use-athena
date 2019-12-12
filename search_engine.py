@@ -48,6 +48,7 @@ class crawler:
         http = urllib3.PoolManager()
 
         for i in range(depth):
+            
             newpages = set()
             for page in pages:
                 try:

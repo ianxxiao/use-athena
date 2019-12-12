@@ -6,4 +6,4 @@ def test_crawler(pagelist, num_links):
     from search_engine import crawler
     crawler = crawler('')
 
-    assert crawler.crawl(pagelist) >= num_links
+    assert crawler.crawl(pagelist, depth=1) >= num_links

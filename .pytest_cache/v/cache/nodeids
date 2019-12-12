@@ -1,5 +1,7 @@
 [
   "test_main_pytest.py::test_addition[2-3-5]",
   "test_main_pytest.py::test_addition[3-5-8]",
-  "test_main_pytest.py::test_addition[5-8-13]"
+  "test_main_pytest.py::test_addition[5-8-13]",
+  "test_main_pytest.py::test_addition[10-10-20]",
+  "test_main_pytest.py::test_addition[20-20-23]"
 ]

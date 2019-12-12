@@ -1,7 +1,7 @@
 # this is the main funcation of Athena
-import urllib2
-from BeautifulSoup import *
-from urlparse import urljoin
+import urllib3
+from bs4 import BeautifulSoup
+import urllib.parse
 
 
 class crawler:
@@ -48,3 +48,17 @@ class crawler:
 	def create_index_tables(self):
 		pass
 
+
+# THIS IS THE MAIN CODE
+
+def cal_multiple(a, b):
+
+    return int(a) * int(b)
+
+def cal_addition(a, b):
+
+    return int(a) + int(b)
+
+if __name__ == '__main__':
+
+    print(">>>>> " + str(cal_addition(2, 4)))

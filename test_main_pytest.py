@@ -1,0 +1,7 @@
+from main import cal_addition
+import pytest
+
+@pytest.mark.parametrize("a, b, expected", [(2, 3, 5), (3, 5, 8), (5, 8, 13)])
+def test_addition(a, b, expected):
+
+    assert cal_addition(a, b) == expected

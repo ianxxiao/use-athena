@@ -2,6 +2,8 @@
 import urllib3
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
+import warnings
+warnings.filterwarnings("ignore")
 
 WORDS_IGNORE = set(['the', 'of', 'to', 'and', 'a', 'in', 'is', 'it'])
 
@@ -48,7 +50,7 @@ class crawler:
         http = urllib3.PoolManager()
 
         for i in range(depth):
-            
+
             newpages = set()
             for page in pages:
                 try:

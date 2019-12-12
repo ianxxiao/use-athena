@@ -4,7 +4,6 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 import warnings
 warnings.filterwarnings("ignore")
-from configs import search_engine_config
 
 class crawler:
 

@@ -50,10 +50,9 @@ class crawler:
         for i in range(depth):
             newpages = set()
             for page in pages:
-                try:
-                    r = http.request('GET', page)
-                except:
-                    print("Could not open %s" % page)
+                r = http.request('GET', page)
+                if r.status != 200:
+                    print("Could not connect to %s" % page)
                     continue
 
                 # parse content with BeautifulSoup
@@ -67,24 +66,17 @@ class crawler:
                     if 'href' in dict(link.attrs):
                         url = urljoin(page, link['href'])
                         if url.find("'") != -1: continue
-                    url=url.split("#")[0]
-                    if url[0:4] == 'http' and not self.is_indexed(url)
-                        newpages.add(url)
-                    linkTest = self.get_text_only(link)
-                    self.add_link_ref(page, url, linkTest)
+                        url=url.split("#")[0]
+                        if url[0:4] == 'http' and not self.is_indexed(url):
+                            newpages.add(url)
+                        linkTest = self.get_text_only(link)
+                        self.add_link_ref(page, url, linkTest)
 
                 self.db_commit()
-
             pages = newpages
+
+        return len(links)
 
     # create the database tables
     def create_index_tables(self):
         pass
-
-
-def cal_addition(a, b):
-    return int(a) + int(b)
-
-
-if __name__ == '__main__':
-    print(">>>>> " + str(cal_addition(2, 4)))

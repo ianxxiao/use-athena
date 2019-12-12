@@ -17,6 +17,7 @@ class Crawler:
 
         try:
             self.conn = sqlite3.connect(dbname)
+            self.create_index_tables()
         except:
             print(">>>>> Cannot Connect to SQL DB. Terminate. <<<<<")
 
@@ -128,12 +129,12 @@ class Crawler:
 
     # Seperate the words by any non-whitespace character
     def seperate_words(self, text):
-        splitter = re.complie('\\W*')
+        splitter = re.compile('\\W*')
         return [s.lower() for s in splitter.split(text) if s != '']
 
     # Return true if this url is already indexed
     def is_indexed(self, url):
-        u = self.conn.execute("select rowid from URL_LIST").fechone()
+        u = self.conn.execute("select rowid from URL_LIST").fetchone()
         if u is not None:
             # check if it actually has been crawled
             v = self.conn.execute("select * from WORD_LOCATION where url_id = %d" % u[0]).fetchone()

@@ -50,9 +50,10 @@ class crawler:
         for i in range(depth):
             newpages = set()
             for page in pages:
-                r = http.request('GET', page)
-                if r.status != 200:
-                    print("Could not connect to %s" % page)
+                try:
+                    r = http.request('GET', page)
+                except:
+                    print("Could not get %s" % page)
                     continue
 
                 # parse content with BeautifulSoup

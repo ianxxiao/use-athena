@@ -1,7 +1,9 @@
 # this is the main funcation of Athena
 import urllib3
 from bs4 import BeautifulSoup
-import urllib.parse
+from urllib.parse import urljoin
+
+WORDS_IGNORE = set(['the', 'of', 'to', 'and', 'a', 'in', 'is', 'it'])
 
 
 class crawler:
@@ -42,7 +44,38 @@ class crawler:
 
     # start with a list of pages, do a breadth first search to the given depth, index page as we go
     def crawl(self, pages, depth=2):
-        pass
+
+        http = urllib3.PoolManager()
+
+        for i in range(depth):
+            newpages = set()
+            for page in pages:
+                try:
+                    r = http.request('GET', page)
+                except:
+                    print("Could not open %s" % page)
+                    continue
+
+                # parse content with BeautifulSoup
+                soup = BeautifulSoup(r.data)
+                self.add_to_index(page, soup)
+
+                # get all the links in the page
+                links = soup('a')
+
+                for link in links:
+                    if 'href' in dict(link.attrs):
+                        url = urljoin(page, link['href'])
+                        if url.find("'") != -1: continue
+                    url=url.split("#")[0]
+                    if url[0:4] == 'http' and not self.is_indexed(url)
+                        newpages.add(url)
+                    linkTest = self.get_text_only(link)
+                    self.add_link_ref(page, url, linkTest)
+
+                self.db_commit()
+
+            pages = newpages
 
     # create the database tables
     def create_index_tables(self):

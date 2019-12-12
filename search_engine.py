@@ -4,18 +4,39 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 import warnings
 warnings.filterwarnings("ignore")
+import sqlite3
 
 class crawler:
 
     # Initialize the crawler with the name of database
     def __init__(self, dbname):
-        pass
+
+        try:
+            self.conn = sqlite3.connect(dbname)
+        except:
+            print(">>>>> Cannot Connect to SQL DB. Terminate. <<<<<")
 
     def __del__(self):
-        pass
+        self.conn.close()
 
     def db_commit(self):
-        pass
+        self.conn.commit()
+
+    def create_index_tables(self):
+        # create tables
+        self.conn.execute('create table URL_LIST(url)')
+        self.conn.execute('create table WORD_LIST(word)')
+        self.conn.execute('create table WORD_LOCATION(url_id, word_id, location)')
+        self.conn.execute('create table LINK(from_id integer, to_id integer)')
+        self.conn.execute('create table LINK_WORDS(word_id, link_id)')
+
+        # index the tables
+        self.conn.execute('create index word_idx on WORD_LIST(word)')
+        self.conn.execute('create index url_idx on URL_LIST(url)')
+        self.conn.execute('create index word_url_idx on WORD_LIST(word)')
+        self.conn.execute('create index url_to_idx on LINK(to_id)')
+        self.conn.execute('create index url_from_idx on LINK(from_id)')
+        self.db_commit()
 
     # Auxilliary function for getting an entry id (add if it doesn't exist)
     def get_entry_id(self, table, field, value, create_new=True):

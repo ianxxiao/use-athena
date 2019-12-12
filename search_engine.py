@@ -4,6 +4,7 @@ import sqlite3
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 import warnings
+import re
 
 warnings.filterwarnings("ignore")
 
@@ -100,9 +101,10 @@ class Crawler:
 
     # Seperate the words by any non-whitespace character
     def seperate_words(self, text):
-        return None
+        splitter = re.complie('\\W*')
+        return [s.lower() for s in splitter.split(text) if s!='']
 
-    # Return true if this url is alread indexed
+    # Return true if this url is already indexed
     def is_indexed(self, url):
         return False
 

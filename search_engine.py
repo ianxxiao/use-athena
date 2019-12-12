@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 import warnings
 import re
+import configs.search_engine_config as config
 
 warnings.filterwarnings("ignore")
 
@@ -71,6 +72,7 @@ class Crawler:
                         if url[0:4] == 'http' and not self.is_indexed(url):
                             new_pages.add(url)
                         linkTest = self.get_text_only(link)
+                        print(linkTest)
                         self.add_link_ref(page, url, linkTest)
 
                 self.db_commit()
@@ -80,11 +82,36 @@ class Crawler:
 
     # Auxilliary function for getting an entry id (add if it doesn't exist)
     def get_entry_id(self, table, field, value, create_new=True):
-        return None
+        cur = self.conn.execute("select rowid %s where %s = '%s'" % (table, field, value))
+        res = cur.fetchone()
+        if res is None:
+            cur = self.conn.execute("insert into %s (%s) values ('%s')" % (table, field, value))
+            return cur.lastrowid
+        else:
+            return res[0]
 
     # Index an individual page
     def add_to_index(self, url, soup):
-        print("Indexing %s" % url)
+
+        if self.is_indexed(url):
+            return
+
+        print('Indexing ' + url)
+
+        # Get individual words
+        text = self.get_text_only(soup)
+        words = self.seperate_words(text)
+
+        # Get the URL ID
+        url_id = self.get_entry_id('URL_LIST', 'url', url)
+
+        # Link each word to this URL
+        for i in range(len(words)):
+            word = words[i]
+            if word in config.WORDS_IGNORE: continue
+            word_id = self.get_entry_id('word_list', 'word', word)
+            self.conn.execute("insert into WORD_LOCATION(url_id, word_id, location) values (%d, %d, %d)"
+                              % (url_id, word_id, i))
 
     # Extract the text from an HTML page (no tags)
     def get_text_only(self, soup):
@@ -102,10 +129,16 @@ class Crawler:
     # Seperate the words by any non-whitespace character
     def seperate_words(self, text):
         splitter = re.complie('\\W*')
-        return [s.lower() for s in splitter.split(text) if s!='']
+        return [s.lower() for s in splitter.split(text) if s != '']
 
     # Return true if this url is already indexed
     def is_indexed(self, url):
+        u = self.conn.execute("select rowid from URL_LIST").fechone()
+        if u is not None:
+            # check if it actually has been crawled
+            v = self.conn.execute("select * from WORD_LOCATION where url_id = %d" % u[0]).fetchone()
+            if v is not None:
+                return True
         return False
 
     # add a link between two pages

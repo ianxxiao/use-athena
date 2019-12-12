@@ -4,9 +4,7 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 import warnings
 warnings.filterwarnings("ignore")
-
-WORDS_IGNORE = set(['the', 'of', 'to', 'and', 'a', 'in', 'is', 'it'])
-
+from configs import search_engine_config
 
 class crawler:
 

@@ -1,5 +1,5 @@
 # Athena
-Athena helps aspiring writers to write better, publish more, and find their unique "voice". Athena is powered by the latest Big Data, Text Analytics, and Machine Learning tools.
+Athena helps bloggers to write better, publish more, and find their unique "voice". Athena is powered by the latest Big Data, Text Analytics, and Machine Learning tools.
 
 Check out https://athena.launchaco.com/ for more details and sign up for the beta launch.
 

@@ -11,7 +11,7 @@ Check out https://athena.launchaco.com/ for more details and sign up for the bet
 **Athena Review** - This benchmarks and predicts how well your article might do given your topic and audience.
 
 # Free vs. Pro
-Athena uses a freemium model. Features and pricing details are coming soon.
+Athena uses simple and transparent freemium model. Features and pricing details are coming soon.
 
 # Installation
 Coming soon.

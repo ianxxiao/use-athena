@@ -1,9 +1,6 @@
 [
-  "test_main_pytest.py::test_addition[2-3-5]",
-  "test_main_pytest.py::test_addition[3-5-8]",
-  "test_main_pytest.py::test_addition[5-8-13]",
-  "test_main_pytest.py::test_addition[10-10-20]",
-  "test_main_pytest.py::test_addition[20-20-23]",
   "test_search_engine.py::test_crawler[page_list0-athena_test.db-3000]",
-  "test_search_engine.py::test_clean_up"
+  "test_search_engine.py::test_clean_up",
+  "test_search_engine.py::test_crawler[page_list0-athena_test.db]",
+  "test_search_engine.py::test_crawler[pages0-athena_test.db]"
 ]

@@ -6,6 +6,7 @@ from urllib.parse import urljoin
 import warnings
 import re
 import configs.search_engine_config as config
+import os
 
 warnings.filterwarnings("ignore")
 
@@ -13,13 +14,18 @@ warnings.filterwarnings("ignore")
 class Crawler:
 
     # Initialize the crawler with the name of database
-    def __init__(self, dbname):
-
-        try:
-            self.conn = sqlite3.connect(dbname)
-            self.create_index_tables()
-        except:
-            print(">>>>> Cannot Connect to SQL DB. Terminate. <<<<<")
+    def __init__(self, db_name):
+        if os.path.isfile(db_name) is False:
+            try:
+                self.conn = sqlite3.connect(db_name)
+                self.create_index_tables()
+            except:
+                print(">>>>> Cannot Create a new SQL DB. Terminate. <<<<<")
+        else:
+            try:
+                self.conn = sqlite3.connect(db_name)
+            except:
+                print(">>>>> Something is Wrong. Cannot Connect to DB. <<<<<<")
 
     def __del__(self):
         self.conn.close()
@@ -49,9 +55,9 @@ class Crawler:
         http = urllib3.PoolManager()
 
         for i in range(depth):
-
             new_pages = set()
             for page in pages:
+                print(page)
                 try:
                     r = http.request('GET', page)
                 except:
@@ -68,28 +74,16 @@ class Crawler:
                 for link in links:
                     if 'href' in dict(link.attrs):
                         url = urljoin(page, link['href'])
-                        if url.find("'") != -1: continue
+                        if url.find("'") != -1:
+                            continue
                         url = url.split("#")[0]
                         if url[0:4] == 'http' and not self.is_indexed(url):
                             new_pages.add(url)
-                        linkTest = self.get_text_only(link)
-                        print(linkTest)
-                        self.add_link_ref(page, url, linkTest)
+                        link_test = self.get_text_only(link)
+                        self.add_link_ref(page, url, link_test)
 
                 self.db_commit()
             pages = new_pages
-
-        return len(links)
-
-    # Auxilliary function for getting an entry id (add if it doesn't exist)
-    def get_entry_id(self, table, field, value, create_new=True):
-        cur = self.conn.execute("select rowid %s where %s = '%s'" % (table, field, value))
-        res = cur.fetchone()
-        if res is None:
-            cur = self.conn.execute("insert into %s (%s) values ('%s')" % (table, field, value))
-            return cur.lastrowid
-        else:
-            return res[0]
 
     # Index an individual page
     def add_to_index(self, url, soup):
@@ -103,16 +97,34 @@ class Crawler:
         text = self.get_text_only(soup)
         words = self.seperate_words(text)
 
-        # Get the URL ID
+        # Get the URL ID (add if not exist)
         url_id = self.get_entry_id('URL_LIST', 'url', url)
+        print(url_id)
 
         # Link each word to this URL
         for i in range(len(words)):
             word = words[i]
-            if word in config.WORDS_IGNORE: continue
+            if word in config.WORDS_IGNORE:
+                continue
             word_id = self.get_entry_id('word_list', 'word', word)
             self.conn.execute("insert into WORD_LOCATION(url_id, word_id, location) values (%d, %d, %d)"
                               % (url_id, word_id, i))
+
+    # Get an row id (add if it doesn't exist)
+    def get_entry_id(self, table, field, value, create_new=True):
+        res = None
+
+        try:
+            cur = self.conn.execute("select rowid %s where %s = '%s'" % (table, field, value))
+            res = cur.fetchone()
+        except:
+            pass
+
+        if res is None:
+            cur = self.conn.execute("insert into %s (%s) values ('%s')" % (table, field, value))
+            return cur.lastrowid
+        else:
+            return res[0]
 
     # Extract the text from an HTML page (no tags)
     def get_text_only(self, soup):
@@ -134,7 +146,12 @@ class Crawler:
 
     # Return true if this url is already indexed
     def is_indexed(self, url):
-        u = self.conn.execute("select rowid from URL_LIST").fetchone()
+
+        try:
+            u = self.conn.execute("select rowid from URL_LIST where url = '%s" % url).fetchone()
+        except:
+            u = None
+
         if u is not None:
             # check if it actually has been crawled
             v = self.conn.execute("select * from WORD_LOCATION where url_id = %d" % u[0]).fetchone()

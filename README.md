@@ -5,7 +5,7 @@ Athena helps aspiring writers to write better, publish more, and find their uniq
 
 Check out https://athena.launchaco.com/ for more details and sign up for the beta launch.
 
-# Pricing
+# Free vs. Pro
 Athena uses a freemium model. Features and pricing details are coming soon.
 
 # Installation

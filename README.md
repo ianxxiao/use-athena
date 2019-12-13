@@ -1,11 +1,7 @@
 # Athena
-**Why are we making Athena?** As aspiring and passionate bloggers, it's fustrating when we run out of edgy ideas, struggle to create punchier taglines, and not knowing how the article might do once we publish.
+**Why are we making Athena?** As passionate bloggers, we want to write more interesting articles. But it's fustrating when we run out of edgy ideas, struggle to create punchy taglines, and not knowing how the article might do once we publish.
 
-**What does Athena do?** Athena helps other bloggers to find better ideas, make punchier taglines, and shape more unique "voices". 
-
-**How can you benefit?** With Athena, you can publish more high quality content and create a tighter followership.
-
-Athena is powered by the latest Big Data, Text Analytics, and Machine Learning tools. Athena augments Grammarly, which is great for editing but not for the iterative creative process.
+**How does Athena help?** Athena helps you to find better ideas, publish faster with more confidence, and discover your unique "voice".
 
 Check out https://athena.launchaco.com/ for more details and sign up for the upcoming beta launch.
 
@@ -15,6 +11,8 @@ Check out https://athena.launchaco.com/ for more details and sign up for the upc
 **Athena Suggestions** - This offers suggestions of topics and outlines for your next blog given your interest and audience. 
 
 **Athena Review** - This benchmarks and predicts how well your article might do given your topic and audience.
+
+Athena is powered by the latest Big Data, Text Analytics, and Machine Learning tools. Athena augments Grammarly, which is great for editing but not for the iterative creative process.
 
 # Free vs. Pro
 Athena uses simple and transparent Freemium model. Pricing details are coming soon.

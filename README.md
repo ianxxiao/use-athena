@@ -3,7 +3,7 @@
 
 **What does Athena help with?** Athena helps you to find better ideas, publish faster with more confidence, and discover your unique "voice".
 
-**How does Athena work?** Athena use the latest the latest Big Data, Text Analytics, and Machine Learning tools.
+**How does Athena work?** Athena use the latest the latest Big Data, Text Analytics, and Machine Learning technology.
 
 # Key Features
 **Athena Analytics** - This provides writing-focused insights based on viral trends and make it easy for early research.

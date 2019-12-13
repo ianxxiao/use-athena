@@ -14,7 +14,7 @@
 
 
 # Free vs. Pro
-Athena uses simple and transparent Freemium model. Pricing details are coming soon.
+Athena uses a simple and transparent Freemium model. Pricing details are coming soon.
 
 # How to Get It
 Coming soon. Sign up for our beta launch at https://athena.launchaco.com/

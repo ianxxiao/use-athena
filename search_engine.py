@@ -57,7 +57,7 @@ class Crawler:
         for i in range(depth):
             new_pages = set()
             for page in pages:
-                print(page)
+
                 try:
                     r = http.request('GET', page)
                 except:
@@ -99,7 +99,6 @@ class Crawler:
 
         # Get the URL ID (add if not exist)
         url_id = self.get_entry_id('URL_LIST', 'url', url)
-        print(url_id)
 
         # Link each word to this URL
         for i in range(len(words)):

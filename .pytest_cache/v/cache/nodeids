@@ -1,6 +1,0 @@
-[
-  "test_search_engine.py::test_crawler[page_list0-athena_test.db-3000]",
-  "test_search_engine.py::test_clean_up",
-  "test_search_engine.py::test_crawler[page_list0-athena_test.db]",
-  "test_search_engine.py::test_crawler[pages0-athena_test.db]"
-]

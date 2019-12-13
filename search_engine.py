@@ -153,7 +153,7 @@ class Crawler:
             u = None
 
         if u is not None:
-            # check if it actually has been crawled
+            # check if the same url actually has been crawled before
             v = self.conn.execute("select * from WORD_LOCATION where url_id = %d" % u[0]).fetchone()
             if v is not None:
                 return True

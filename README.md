@@ -1,4 +1,4 @@
-# athena
+# Athena
 This is the repository for Athena. 
 
 Athena helps aspiring writers to write better, publish more, and find their unique "voice". Currently, Athena offers two features: 1) topic suggestions and 2) AI Review. 

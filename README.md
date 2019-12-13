@@ -14,7 +14,7 @@ Athena uses the latest Big Data, Text Analytics, and Machine Learning technologi
 # Key Features
 **Athena Analytics** - This provides intuitive and writing-focused insights based on viral trends in your domain.
 
-**Athena Suggestions** - This offers suggestions of topics and outlines for your next blog given your interest and audience. 
+**Athena Suggestions** - This offers suggestions of topics for your next blog given your interest and audience. More suggestions will come later (e.g. taglines, outlines, etc.)
 
 **Athena Preview** - This benchmarks and predicts how well your article might do given your topic, content, and audience.
 

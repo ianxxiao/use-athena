@@ -9,7 +9,7 @@ Athena helps you to find better ideas, publish faster with more confidence, and 
 
 **How does Athena work?** 
 
-Athena uses the latest Big Data, Text Analytics, and Machine Learning technologies.
+Underneath the elegent and intuitive UI, Athena uses the most powerful Big Data, Text Analytics, and Machine Learning technologies.
 
 # Key Features
 **Athena Analytics** - This provides intuitive and writing-focused insights based on viral trends in your domain.

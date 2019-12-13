@@ -1,5 +1,9 @@
 # Athena
-Athena helps bloggers to find better ideas, make bunchier taglines, and shape more unique "voices". With Athena, you can publish more high quality content and create a tight followership. Athena is built by bloggers for bloggers.
+**Why are we making Athena?** As passonate bloggers, we often run out of ideas, struggle to create punchy taglines, and feel uncertain if our article will become popular. It's fustrating.
+
+**What does Athena do?** Athena helps other bloggers to find better ideas, make bunchier taglines, and shape more unique "voices". 
+
+**How can you benefit?** With Athena, you can publish more high quality content and create a tighter followership.
 
 Athena is powered by the latest Big Data, Text Analytics, and Machine Learning tools. Athena augments Grammarly, which is great for editing but not for the iterative creative process.
 

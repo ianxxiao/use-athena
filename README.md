@@ -3,7 +3,7 @@ Athena helps bloggers to write better, publish more, and find their unique "voic
 
 Athena is powered by the latest Big Data, Text Analytics, and Machine Learning tools. Athena augments Grammarly, which only focuses on editing but not the creative process.
 
-Check out https://athena.launchaco.com/ for more details and sign up for the beta launch.
+Check out https://athena.launchaco.com/ for more details and sign up for the upcoming beta launch.
 
 # Key Features
 **Athena Analytics** - This provides writing-focused insights based on viral trends and make it easy for early research.

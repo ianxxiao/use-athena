@@ -10,7 +10,7 @@
 
 **Athena Suggestions** - This offers suggestions of topics and outlines for your next blog given your interest and audience. 
 
-**Athena Preview** - This benchmarks and predicts how well your article might do given your topic and audience.
+**Athena Preview** - This benchmarks and predicts how well your article might do given your topic, content, and audience.
 
 Check out https://athena.launchaco.com/ for more details and sign up for the upcoming beta launch.
 

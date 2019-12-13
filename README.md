@@ -1,7 +1,7 @@
 # Athena
-**Why are we making Athena?** As passonate bloggers, we often run out of ideas, struggle to create punchier taglines and interesting outlines, and feel anxious for not knowing how the article will be received. It's fustrating.
+**Why are we making Athena?** As aspiring and passionate bloggers, it's fustrating when we run out of edgy ideas, struggle to create punchier taglines, and not knowing how the article might do once we publish.
 
-**What does Athena do?** Athena helps other bloggers to find better ideas, make bunchier taglines, and shape more unique "voices". 
+**What does Athena do?** Athena helps other bloggers to find better ideas, make punchier taglines, and shape more unique "voices". 
 
 **How can you benefit?** With Athena, you can publish more high quality content and create a tighter followership.
 

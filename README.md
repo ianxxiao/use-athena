@@ -3,9 +3,13 @@
 
 As passionate bloggers, we want to write more interesting articles. But it's fustrating when we run out of edgy ideas, struggle to create punchy taglines, and not knowing how the article might do once we publish.
 
-**What does Athena help with?** Athena helps you to find better ideas, publish faster with more confidence, and discover your unique "voice".
+**What does Athena help with?** 
 
-**How does Athena work?** Athena uses the latest Big Data, Text Analytics, and Machine Learning technologies.
+Athena helps you to find better ideas, publish faster with more confidence, and discover your unique "voice".
+
+**How does Athena work?** 
+
+Athena uses the latest Big Data, Text Analytics, and Machine Learning technologies.
 
 # Key Features
 **Athena Analytics** - This provides writing-focused insights based on viral trends and make it easy for early research.

@@ -12,13 +12,12 @@
 
 **Athena Preview** - This benchmarks and predicts how well your article might do given your topic, content, and audience.
 
-Check out https://athena.launchaco.com/ for more details and sign up for the upcoming beta launch.
 
 # Free vs. Pro
 Athena uses simple and transparent Freemium model. Pricing details are coming soon.
 
 # How to Get It
-Coming soon.
+Coming soon. Sign up for our beta launch at https://athena.launchaco.com/
 
 # Build Status
 [![CircleCI](https://circleci.com/gh/ianxxiao/use-athena/tree/master.svg?style=svg)](https://circleci.com/gh/ianxxiao/use-athena/tree/master)

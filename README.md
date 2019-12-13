@@ -5,5 +5,11 @@ Athena helps aspiring writers to write better, publish more, and find their uniq
 
 Check out https://athena.launchaco.com/ for more details and sign up for the beta launch.
 
-# CICD Status
+# Pricing
+Athena uses a freemium model. Features and pricing details are coming soon.
+
+# Installation
+Coming soon.
+
+# Build Status
 [![CircleCI](https://circleci.com/gh/ianxxiao/use-athena/tree/master.svg?style=svg)](https://circleci.com/gh/ianxxiao/use-athena/tree/master)

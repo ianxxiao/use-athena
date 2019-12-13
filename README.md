@@ -38,6 +38,6 @@ Coming soon. Sign up for our beta launch at https://athena.launchaco.com/
 
 **Is Athena for me if I haven't published anything?** Yes. We are here to help all writers to writer better and publish more.
 
-**Can Athen write the article for me?** No. Athena is here to augment your writing. No one can (or should) replace your own minds. And it's not fun if a machine write the article for you, right? :)
+**Can Athen write the article for me?** No. Athena is here to augment your writing. No one can (or should) replace your own minds. And it's not fun if a machine writes the article for you, right? :)
 
 **If I run a Content team, how can Athena help?** We offer a team version. Please reach out to know more.

@@ -32,7 +32,7 @@ Coming soon. Sign up for our beta launch at https://athena.launchaco.com/
 
 **Is Athena another Grammarly?** No. Grammarly does a great job at editing. Athena helps you to find unique ideas with Big Data and AI.
 
-**When is Athena Coming?** We are planning a beta release in Q1 of 2020, then a full release by end of 2020. If you want to check out the alpha version, please get in touch.
+**When is Athena Coming?** We are planning a beta release in Q1 of 2020, then a full release by the end of 2020. If you want to check out the alpha version, please get in touch.
 
 **Do I need to pay for Athena?** We will offer some features for free, but charge for others.
 

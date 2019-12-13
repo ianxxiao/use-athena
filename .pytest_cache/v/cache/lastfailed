@@ -1,3 +1,4 @@
 {
-  "test_main_pytest.py::test_addition[20-20-23]": true
+  "test_main_pytest.py::test_addition[20-20-23]": true,
+  "test_search_engine.py::test_crawler[page_list0-athena_test.db-3000]": true
 }

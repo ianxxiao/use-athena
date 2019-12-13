@@ -12,7 +12,7 @@ Athena helps you to find better ideas, publish faster with more confidence, and 
 Athena uses the latest Big Data, Text Analytics, and Machine Learning technologies.
 
 # Key Features
-**Athena Analytics** - This provides writing-focused insights based on viral trends and make it easy for early research.
+**Athena Analytics** - This provides intuitive and writing-focused insights based on viral trends in your domain.
 
 **Athena Suggestions** - This offers suggestions of topics and outlines for your next blog given your interest and audience. 
 

@@ -1,5 +1,5 @@
 # Athena
-Athena helps bloggers to write better, publish more, and find their unique "voice". 
+Athena helps bloggers to find better ideas, publish more, and create their unique "voices". 
 
 Athena is powered by the latest Big Data, Text Analytics, and Machine Learning tools. Athena augments Grammarly, which is great for editing but not for the iterative creative process.
 
@@ -13,9 +13,9 @@ Check out https://athena.launchaco.com/ for more details and sign up for the upc
 **Athena Review** - This benchmarks and predicts how well your article might do given your topic and audience.
 
 # Free vs. Pro
-Athena uses simple and transparent freemium model. Features and pricing details are coming soon.
+Athena uses simple and transparent Freemium model. Pricing details are coming soon.
 
-# Installation
+# How to Get It
 Coming soon.
 
 # Build Status

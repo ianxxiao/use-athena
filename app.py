@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, g
 from configs import search_engine_config
 import sqlite3
-from helper.db import get_db, insert_to_db
+from helper.db import get_db, insert_to_user_query
 
 DATABASE = search_engine_config.TEST_DB_NAME
 
@@ -22,8 +22,8 @@ def success():
         idea_1 = request.form["idea_1"]
         idea_2 = request.form["idea_2"]
         idea_3 = request.form["idea_3"]
-        #TODO: COMPLETE THE INSERT FUNCTION
-        insert_to_db(conn, email, [idea_1, idea_2, idea_3])
+        # TODO: ADD ERROR CATCHING
+        insert_to_user_query(conn, email, [idea_1, idea_2, idea_3])
     return render_template("success.html")
 
 

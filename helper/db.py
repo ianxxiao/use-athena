@@ -1,9 +1,19 @@
 # This script includes all helper functions to manage SQLite DB
 import sqlite3
 import os
+import time
 
 
 def get_db(DATABASE):
+
+    """
+    This function connects to the database or create a new one if it does not exist.
+    Inputs:
+        DATABASE (str): the name of the database
+    Return:
+        conn: connection class
+    """
+
     # stand up a db if it does not exist
     if os.path.isfile(DATABASE) is False:
         try:
@@ -21,6 +31,15 @@ def get_db(DATABASE):
 
 
 def create_index_tables(conn):
+
+    """
+    This function initialize all the tables and index them
+    input:
+        conn: connection class
+    output:
+        None
+    """
+
     # create tables
     c = conn.cursor()
     c.execute('create table URL_LIST(url)')
@@ -28,7 +47,7 @@ def create_index_tables(conn):
     c.execute('create table WORD_LOCATION(url_id, word_id, location)')
     c.execute('create table LINK(from_id integer, to_id integer)')
     c.execute('create table LINK_WORDS(word_id, link_id)')
-    c.execute('create table USER_QUERY(email, query)')
+    c.execute('create table USER_QUERY(email, query, timestamp)')
 
     # index the tables
     c.execute('create index word_idx on WORD_LIST(word)')
@@ -50,9 +69,12 @@ def insert_to_user_query(conn, email, query_values):
         values: a list of values to be inserted in (e.g. [idea_1, idea_2, idea_3])
     """
     c = conn.cursor()
+    timestamp = str(time.strftime('%Y%m%d%H%M%S'))
+    print(timestamp)
     for query in query_values:
         try:
-            conn.execute("insert into USER_QUERY(email, query) values ('%s', '%s')" % (email, query))
+            conn.execute("insert into USER_QUERY(email, query, timestamp) "
+                         "values ('%s', '%s', '%s')" % (email, query, timestamp))
             print("done inserting")
         except:
             print("didn't work")

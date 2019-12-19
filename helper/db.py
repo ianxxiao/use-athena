@@ -21,7 +21,6 @@ def get_db(DATABASE):
 
 
 def create_index_tables(conn):
-
     # create tables
     conn.execute('create table URL_LIST(url)')
     conn.execute('create table WORD_LIST(word)')
@@ -38,3 +37,8 @@ def create_index_tables(conn):
     conn.execute('create index url_from_idx on LINK(from_id)')
     conn.execute('create index email_idx on USER_QUERY(email)')
     conn.commit()
+
+
+def insert_to_db(conn, table, field, values):
+    for value in values:
+        conn.execute("insert into %s (%s) values ('%s')" % (table, field, value))

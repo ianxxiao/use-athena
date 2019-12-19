@@ -9,6 +9,8 @@ page_list = ['https://en.wikipedia.org/wiki/James_Bond', 'https://en.wikipedia.o
              'https://towardsdatascience.com/data-science-is-boring-1d43473e353e']
 
 
+#TODO: ADD TEST CASES FOR FRONT END AND NEW DB
+
 @pytest.mark.parametrize("pages, db_name", [(page_list, search_engine_config.TEST_DB_NAME)])
 def test_crawler(pages, db_name):
     clean_db.clean_test_db()

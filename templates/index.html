@@ -9,6 +9,10 @@
             <h1>Athena</h1>
             <h3>Hiya! This is Athena &#128512. Tell me 3 ideas and I will help you prioritize based on what is trending
                 and missing ... </h3>
+            <div class="message">
+                {{text | safe}}
+            </div>
+
             <form action="{{url_for('success')}}" method="POST">
                 <input title="Your email will be safe with us"
                        placeholder="Your Email (we will send a personalized result to your email)"
@@ -17,24 +21,27 @@
                         required>
                 <br>
 
-                <input title="Your data will be safe with us"
-                       placeholder="Enter your 1st idea (e.g. a title or a sentence that describes your idea)"
+                <input title="Try limiting your search to less than 50 characters"
+                       placeholder="Enter your 1st idea (e.g. a title of your blog)"
                         type="text"
                         name="idea_1"
+                        maxlength="50"
                         required>
                 <br>
 
-                <input title="Your data will be safe with us"
-                       placeholder="Enter your 2nd idea (e.g. a title or a sentence that describes your idea)"
+                <input title="Try limiting your search to less than 50 characters"
+                       placeholder="Enter your 2nd idea (e.g. a title of your blog)"
                         type="text"
                         name="idea_2"
+                        maxlength="50"
                         required>
                 <br>
 
-                <input title="Your data will be safe with us"
-                       placeholder="Enter your 3rd idea (e.g. a title or a sentence that describes your idea)"
+                <input title="Try limiting your search to less than 50 characters"
+                       placeholder="Enter your 3rd idea (e.g. a title of your blog)"
                         type="text"
                         name="idea_3"
+                        maxlength="50"
                         required>
                 <br>
 

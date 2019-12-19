@@ -5,7 +5,6 @@ import time
 
 
 def get_db(DATABASE):
-
     """
     This function connects to the database or create a new one if it does not exist.
     Inputs:
@@ -31,7 +30,6 @@ def get_db(DATABASE):
 
 
 def create_index_tables(conn):
-
     """
     This function initialize all the tables and index them
     input:
@@ -70,12 +68,8 @@ def insert_to_user_query(conn, email, query_values):
     """
     c = conn.cursor()
     timestamp = str(time.strftime('%Y%m%d%H%M%S'))
-    print(timestamp)
     for query in query_values:
-        try:
-            conn.execute("insert into USER_QUERY(email, query, timestamp) "
-                         "values ('%s', '%s', '%s')" % (email, query, timestamp))
-            print("done inserting")
-        except:
-            print("didn't work")
+        c.execute("insert into USER_QUERY(email, query, timestamp) "
+                  "values ('%s', '%s', '%s')" % (email, query, timestamp))
+
     conn.commit()

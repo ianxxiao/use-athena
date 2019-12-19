@@ -1,16 +1,46 @@
+import sys
+sys.path.append('../use-athena')
+
 import pytest
 from configs import search_engine_config
 from helper import clean_db
 import sqlite3
 import os
 from search_engine import Crawler
+import mechanize
 
 page_list = ['https://en.wikipedia.org/wiki/James_Bond', 'https://en.wikipedia.org/wiki/Star_Wars',
              'https://towardsdatascience.com/data-science-is-boring-1d43473e353e']
 
 
-# TODO: ADD TEST CASES FOR FRONT END AND NEW DB
-# TODO: ADD TEST CASES FOR USER QUERY
+@pytest.mark.parametrize("email, ideas, db_name", [("ian.xxiao@gmail.com",
+                                                    ["my 1st idea", "my 2nd idea", "my 3rd idea"],
+                                                    search_engine_config.TEST_DB_NAME)])
+def test_app_idea_entry(email, ideas, db_name):
+
+    # clean the db
+    clean_db.clean_test_db()
+
+    # start the app
+    os.system("python app.py")
+
+    # create a mechanize bot
+    br = mechanize.Browser()
+    br.set_handle_robots(False)  # ignore robots
+    br.set_handle_refresh(False)  # can sometimes hang without this
+    br.open("http://127.0.0.1:5000/")
+    br.select_form("user_ideas")
+    br.form['email_name'] = 'ian.xxiao@gmail.com'
+    br.form['idea_1'] = 'my idea 1'
+    br.form['idea_2'] = 'my idea 2'
+    br.form['idea_3'] = 'my idea 3'
+    br.submit()
+
+    # query database
+    conn = sqlite3.connect(db_name)
+    res = conn.execute("select url from URL_LIST").fetchall()
+    assert len(res) == len(ideas)
+
 
 @pytest.mark.parametrize("pages, db_name", [(page_list, search_engine_config.TEST_DB_NAME)])
 def test_crawler(pages, db_name):

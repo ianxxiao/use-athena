@@ -5,7 +5,8 @@ import sqlite3
 import os
 from search_engine import Crawler
 
-page_list = ['https://en.wikipedia.org/wiki/James_Bond', 'https://en.wikipedia.org/wiki/Star_Wars']
+page_list = ['https://en.wikipedia.org/wiki/James_Bond', 'https://en.wikipedia.org/wiki/Star_Wars',
+             'https://towardsdatascience.com/data-science-is-boring-1d43473e353e']
 
 
 @pytest.mark.parametrize("pages, db_name", [(page_list, search_engine_config.TEST_DB_NAME)])

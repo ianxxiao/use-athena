@@ -1,4 +1,5 @@
 # This script includes all helper functions to manage SQLite DB
+# https://www.robinwieruch.de/postgres-sql-macos-setup
 import sys
 sys.path.append('../use-athena')
 import sqlite3

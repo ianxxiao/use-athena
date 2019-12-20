@@ -1,13 +1,13 @@
 import sys
 sys.path.append('../use-athena')
 import pytest
-from configs import search_engine_config
+from configs import back_end_config
 from helper import clean_db, db
 
 
 @pytest.mark.parametrize("email, ideas, db_name", [("ian.xxiao@gmail.com",
                                                     ["my 1st idea", "my 2nd idea", "my 3rd idea"],
-                                                    search_engine_config.UNIT_TEST_DB_NAME)])
+                                                    back_end_config.UNIT_TEST_DB_NAME)])
 def test_db_user_query(email, ideas, db_name):
 
     # start a db
@@ -19,5 +19,4 @@ def test_db_user_query(email, ideas, db_name):
     assert len(num_ideas) == len(ideas)
 
     # tear down the db
-
     clean_db.clean_test_db(db_name)

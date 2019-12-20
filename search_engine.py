@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 import warnings
 import re
-import configs.search_engine_config as config
+import configs.back_end_config as config
 import os
 
 warnings.filterwarnings("ignore")

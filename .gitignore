@@ -39,3 +39,6 @@ ehthumbs.db
 Thumbs.db
 .idea
 .pytest_cache
+
+# secret credentials
+secret_stuff.py

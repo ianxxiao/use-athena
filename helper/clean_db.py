@@ -1,7 +1,7 @@
 # this script remove all test DBs from folder to release storage
 
 import os
-import configs.search_engine_config as config
+import configs.back_end_config as config
 
 
 def clean_test_db(db_name):

@@ -1,9 +1,10 @@
 from flask import Flask, render_template, request, g
-from configs import search_engine_config
+from configs import back_end_config
 import sqlite3
 from helper.db import get_db, insert_to_user_query
+from send_email import send_email
 
-DATABASE = search_engine_config.TEST_DB_NAME
+DATABASE = back_end_config.TEST_DB_NAME
 
 app = Flask(__name__)
 
@@ -28,9 +29,10 @@ def success():
         idea_3 = request.form["idea_3"]
         try:
             insert_to_user_query(conn, email, [idea_1, idea_2, idea_3])
+            send_email(email)
             return render_template("success.html")
         except:
-            return render_template("index.html", text="Something went wrong. We are fixing it. Try again later?")
+             return render_template("index.html", text="Something went wrong. We are fixing it. Try again later?")
 
 
 @app.teardown_appcontext

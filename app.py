@@ -16,7 +16,11 @@ def index():
 
 @app.route("/success", methods=['POST'])
 def success():
+
+    # connect to the database
     conn = get_db(DATABASE)
+
+    # collect the user inputs & insert to DB
     if request.method == 'POST':
         email = request.form["email_name"]
         idea_1 = request.form["idea_1"]

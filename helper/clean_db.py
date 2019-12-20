@@ -4,10 +4,10 @@ import os
 import configs.search_engine_config as config
 
 
-def clean_test_db():
-    if os.path.isfile(config.TEST_DB_NAME):
+def clean_test_db(db_name):
+    if os.path.isfile(db_name):
         print("clean up test db ...")
-        os.remove(config.TEST_DB_NAME)
+        os.remove(db_name)
     else:
         pass
 

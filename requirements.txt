@@ -1,4 +1,9 @@
-pytest>=5.0.1
-urllib3>=1.25.6
-beautifulsoup4>=4.8.1
-pysqlite3>=0.4.1
+pytest==5.0.1
+urllib3==1.25.6
+beautifulsoup4==4.8.1
+pysqlite3==0.4.1
+flask==1.1.1
+psycopg2-binary==2.8.4
+Flask-SQLAlchemy==2.4.1
+mechanize==0.4.4
+postgres==3.0.0

@@ -39,3 +39,7 @@ ehthumbs.db
 Thumbs.db
 .idea
 .pytest_cache
+
+# sensitive stuff
+secret_stuff.py
+test_email.py

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <title> Athena Analytics </title>
+    <head>
+        <link href="../static/main.css" rel = "stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Athena</h1>
+            <h3>Hiya! This is Athena &#128512. Tell me 3 ideas and I will help you prioritize based on what is trending
+                and missing ... </h3>
+            <div class="message">
+                {{text | safe}}
+            </div>
+
+            <form action="{{url_for('success')}}" method="POST" name="user_ideas">
+                <input title="Your email is safe with us. We don't spam."
+                       placeholder="Your Email (we will send a personalized result to your email)"
+                        type="email"
+                        name="email_name"
+                        required>
+                <br>
+
+                <input title="Your info is safe with us. We don't spam."
+                       placeholder="Your first name"
+                        type="text"
+                        name="name"
+                        maxlength="20"
+                        required>
+                <br>
+
+                <input title="Try limiting your search to less than 50 characters"
+                       placeholder="Enter your 1st idea (e.g. a title of your blog)"
+                        type="text"
+                        name="idea_1"
+                        maxlength="50"
+                        required>
+                <br>
+
+                <input title="Try limiting your search to less than 50 characters"
+                       placeholder="Enter your 2nd idea (e.g. a title of your blog)"
+                        type="text"
+                        name="idea_2"
+                        maxlength="50"
+                        required>
+                <br>
+
+                <input title="Try limiting your search to less than 50 characters"
+                       placeholder="Enter your 3rd idea (e.g. a title of your blog)"
+                        type="text"
+                        name="idea_3"
+                        maxlength="50"
+                        required>
+                <br>
+
+                <button type="submit"> &#x1F44D </button>
+
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,7 +1,44 @@
 # This script includes all helper functions to manage SQLite DB
+import sys
+sys.path.append('../use-athena')
 import sqlite3
 import os
 import time
+import psycopg2
+from configs import db_config
+from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
+from sqlalchemy.types import String
+
+def create_db():
+
+    """
+    This function starts a postgres db.
+    Inputs:
+
+    Return:
+        None
+    """
+    print("setting up postgres database ...")
+    user = "postgres"
+    host = "127.0.0.1"
+    port = "5432"
+    database = "athena_dev"
+    conn = psycopg2.connect(user=user,
+                            host=host,
+                            port=port,
+                            database=database)
+
+    # check if the database exists
+    cur = conn.cursor()
+    cur.execute(f"select datname from pg_catalog.pg_database where datname='{database}'")
+    if cur.fetchone() is None:
+        print("creating a new database ...")
+        conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
+        cur.execute(f'create database {database}')
+    else:
+        print("database already exist ...")
+    cur.close()
+    conn.close()
 
 
 def get_db(DATABASE):

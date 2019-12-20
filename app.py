@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request, g
-from configs import back_end_config
+from configs import db_config
 import sqlite3
-from helper.db import get_db, insert_to_user_query
+from helper.db import create_db, get_db, insert_to_user_query
 from send_email import send_email
 
-DATABASE = back_end_config.TEST_DB_NAME
+DATABASE = db_config.TEST_DB_NAME
 
 app = Flask(__name__)
 
@@ -45,4 +45,5 @@ def close_connection(exception):
 
 if __name__ == '__main__':
     app.debug = True
+    #create_db()
     app.run()

@@ -1,13 +1,13 @@
 import sys
 sys.path.append('../use-athena')
 import pytest
-from configs import back_end_config
+from configs import db_config
 from helper import clean_db, db
 
 
 @pytest.mark.parametrize("email, ideas, db_name", [("ian.xxiao@gmail.com",
                                                     ["my 1st idea", "my 2nd idea", "my 3rd idea"],
-                                                    back_end_config.UNIT_TEST_DB_NAME)])
+                                                    db_config.UNIT_TEST_DB_NAME)])
 def test_db_user_query(email, ideas, db_name):
 
     # start a db

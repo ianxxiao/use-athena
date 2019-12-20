@@ -6,7 +6,8 @@ import pytest
 from helper.analytics import score_ideas
 
 
-@pytest.mark.parametrize("ideas", [["love is great", "love is boring", "love is crazy"]])
+@pytest.mark.parametrize("ideas", [["love is great", "love is boring", "love is crazy"],
+                                   ["people are nice", "people are awesome", "people are stupid"]])
 def test_db_user_query(ideas):
 
     ranked_ideas = score_ideas(ideas)

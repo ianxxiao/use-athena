@@ -24,13 +24,14 @@ def success():
     # collect the user inputs & insert to DB
     if request.method == 'POST':
         email = request.form["email_name"]
+        name = request.form["name"]
         idea_1 = request.form["idea_1"]
         idea_2 = request.form["idea_2"]
         idea_3 = request.form["idea_3"]
         try:
             # insert_to_user_query(conn, email, [idea_1, idea_2, idea_3])
             ranked_ideas = score_ideas([idea_1, idea_2, idea_3])
-            send_email(email, ranked_ideas)
+            send_email(email, name, ranked_ideas)
             return render_template("success.html")
         except:
              return render_template("index.html", text="Hmm. Something went wrong. We are fixing it. Try again later?")

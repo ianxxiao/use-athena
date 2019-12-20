@@ -14,10 +14,18 @@
             </div>
 
             <form action="{{url_for('success')}}" method="POST" name="user_ideas">
-                <input title="Your email will be safe with us"
+                <input title="Your email is safe with us. We don't spam."
                        placeholder="Your Email (we will send a personalized result to your email)"
                         type="email"
                         name="email_name"
+                        required>
+                <br>
+
+                <input title="Your info is safe with us. We don't spam."
+                       placeholder="Your first name"
+                        type="text"
+                        name="name"
+                        maxlength="20"
                         required>
                 <br>
 

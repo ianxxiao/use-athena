@@ -3,11 +3,12 @@ from configs import secret_stuff, email_config
 import smtplib
 
 
-def send_email(email_addr, ranked_ideas):
+def send_email(email_addr, name, ranked_ideas):
     '''
     this function sends an email to a user
     inputs:
         email (str): email address of the recipient
+        name (str): first name of the recipient
         ranked_ideas (list): a ranked list of ideas with score (highest first)
     '''
 
@@ -17,7 +18,7 @@ def send_email(email_addr, ranked_ideas):
     to_email = email_addr
 
     # Create email content and recipient info
-    msg = make_content(ranked_ideas)
+    msg = make_content(ranked_ideas, name)
     msg['Subject'] = email_config.EMAIL_SUBJECT
     msg['To'] = to_email
     msg['From'] = from_email
@@ -30,16 +31,18 @@ def send_email(email_addr, ranked_ideas):
     gmail.send_message(msg)
 
 
-def make_content(ranked_ideas):
+def make_content(ranked_ideas, name):
     """
     This function create email content based on the ranked ideas and placeholder.
     Inputs:
         ranked_ideas (list): a ranked list of ideas with score (highest first)
+        name(str): the first time of the recipient
     Output:
         msg = HTML email content
     """
 
-    introduction = "Hiya, this is Athena. Here is what I think your ideas will do based on my Athena Score. <br>"
+    introduction = "Hiya {}, this is Athena. Here is what I think of your ideas my Athena Score. <br>" \
+        .format(name)
     first = "<li> <strong>{}</strong>: {} </li>".format(ranked_ideas[0][0], ranked_ideas[0][1])
     second = "<li> <strong>{}</strong>: {} </li>".format(ranked_ideas[1][0], ranked_ideas[1][1])
     third = "<li> <strong>{}</strong>: {} </li>".format(ranked_ideas[2][0], ranked_ideas[2][1])

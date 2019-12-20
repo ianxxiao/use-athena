@@ -40,5 +40,6 @@ Thumbs.db
 .idea
 .pytest_cache
 
-# secret credentials
+# sensitive stuff
 secret_stuff.py
+test_email.py

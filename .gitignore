@@ -41,5 +41,4 @@ Thumbs.db
 .pytest_cache
 
 # sensitive stuff
-secret_stuff.py
 test_email.py

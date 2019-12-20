@@ -27,6 +27,7 @@ Coming soon. Sign up for our beta launch at https://athena.launchaco.com/
 
 # Sneak Peek
 Here is a link to the alpha site: https://use-athena.herokuapp.com/
+The alpha site include basic features. The scoring algorithm is still work-in-progress.
 
 # Build Status
 [![CircleCI](https://circleci.com/gh/ianxxiao/use-athena/tree/master.svg?style=svg)](https://circleci.com/gh/ianxxiao/use-athena/tree/master)

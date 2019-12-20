@@ -25,6 +25,9 @@ Athena uses a simple and transparent Freemium model. Pricing details are coming 
 # How to Get It
 Coming soon. Sign up for our beta launch at https://athena.launchaco.com/
 
+# Sneek Peak
+Here is a link to the alpha site: https://use-athena.herokuapp.com/
+
 # Build Status
 [![CircleCI](https://circleci.com/gh/ianxxiao/use-athena/tree/master.svg?style=svg)](https://circleci.com/gh/ianxxiao/use-athena/tree/master)
 

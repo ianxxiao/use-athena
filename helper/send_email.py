@@ -45,26 +45,18 @@ def make_content(ranked_ideas, name, results):
     introduction = "Hiya {}, this is Athena. Here is what I think of your ideas based on my Athena Score. <br>" \
         .format(name)
 
-    first = "<li> <strong>{}</strong>: {} </li>".format(ranked_ideas[0][0], ranked_ideas[0][1])
-    second = "<li> <strong>{}</strong>: {} </li>".format(ranked_ideas[1][0], ranked_ideas[1][1])
-    third = "<li> <strong>{}</strong>: {} </li>".format(ranked_ideas[2][0], ranked_ideas[2][1])
+    ranks = ""
+    for i in ranked_ideas:
+        ranks += "<li> <strong>{}</strong>: {} </li> ".format(i[0], i[1])
 
-    first_articles = "<br> Here are the top articles related to <strong>{}</strong>: <br>".format(ranked_ideas[0][0])
-    first_links = "<li>{}</li> <li>{}</li> <li>{}</li>".format(results[0][0], results[0][1], results[0][2])
+    links = ""
+    for idx, i in enumerate(ranked_ideas):
+        links += "<br> Here are the top articles related to <strong>{}</strong>: <br> ".format(i[0])
+        links += "<li>{}</li> <li>{}</li> <li>{}</li> ".format(results[idx][3], results[idx][4], results[idx][5])
 
-    second_articles = "<br> Here are the top articles related to <strong>{}</strong>: <br>".format(ranked_ideas[1][0])
-    second_links = "<li>{}</li> <li>{}</li> <li>{}</li>".format(results[1][0], results[1][1], results[1][2])
+    end = "<br> The Athena Score is based on trends and opportunities from various popular publication sites." \
+          + "<br> Enjoy writing. See you next time. <br><br> <strong>Athena</strong>"
 
-    third_articles = "<br> Here are the top articles related to <strong>{}</strong>: <br>".format(ranked_ideas[2][0])
-    third_links = "<li>{}</li> <li>{}</li> <li>{}</li>".format(results[2][0], results[2][1], results[2][2])
-
-    explain = "<br> The Athena Score is based on trends and opportunities on various popular publication sites."
-    outro = "<br> Enjoy writing. See you next time. <br> <strong>Athena</strong>"
-
-    msg_str = introduction + first + second + third \
-              + first_articles + first_links \
-              + second_articles + second_links \
-              + third_articles + third_links \
-              + explain + outro
+    msg_str = introduction + ranks + links + end
 
     return MIMEText(msg_str, 'html')

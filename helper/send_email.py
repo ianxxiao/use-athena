@@ -42,7 +42,8 @@ def make_content(ranked_ideas, name, results):
         msg = HTML email content
     """
 
-    introduction = "Hiya {}, this is Athena. Here is what I think of your ideas based on my Athena Score. <br>" \
+    introduction = "Hiya {}, this is Athena. Here is what I think of your ideas based on my Athena Score (alpha). " \
+                   "The Athena Score is based on trends and opportunities from various popular publication sites.<br>"\
         .format(name)
 
     ranks = ""

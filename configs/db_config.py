@@ -7,6 +7,6 @@ HEROKU_DB_URL = 'postgres://hluvsmbqvncppk:493c5dfabacb6d62a697799474f820dcdbfa2
 
 DB_NAME = 'postgres'
 DB_USER = 'postgres'
-DB_PW = 'postgres123'
+DB_PW = 'postgres'
 HOST = 'localhost'
 PORT = '5432'

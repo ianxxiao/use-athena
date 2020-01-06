@@ -48,5 +48,9 @@ def close_connection(exception):
 
 if __name__ == '__main__':
     app.debug = True
+
+    # create postgres tables if not exist
     create_table()
+
+    # run the web app
     app.run()

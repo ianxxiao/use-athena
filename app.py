@@ -5,8 +5,6 @@ from helper.send_email import send_email
 from helper.analytics import score_ideas
 from helper.google_search import google_search
 
-DATABASE = db_config.TEST_DB_NAME
-
 app = Flask(__name__)
 
 

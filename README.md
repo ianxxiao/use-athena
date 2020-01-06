@@ -16,6 +16,10 @@ Underneath the elegent and intuitive UI, Athena uses the most powerful Big Data,
 
 ![Image description](/assets/landing-page.png)
 
+In about 2 minutes, you will receive a personalized report like this:
+
+![Image description](/assets/response.png)
+
 **Athena Suggestions** (coming soon!) - This offers suggestions of topics for your next blog given your interest and audience. More suggestions will come later (e.g. taglines, outlines, etc.)
 
 **Athena Preview** (coming soon!) - This benchmarks and predicts how well your article might do given your topic, content, and audience.

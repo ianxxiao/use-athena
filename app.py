@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, g
 from configs import db_config
-from helper.db import get_db, insert_to_user_query
+from helper.db import create_table, insert_to_user_query
 from helper.send_email import send_email
 from helper.analytics import score_ideas
 from helper.google_search import google_search
@@ -12,15 +12,12 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    conn = get_db(DATABASE)
+
     return render_template("index.html")
 
 
 @app.route("/success", methods=['POST'])
 def success():
-
-    # connect to the database
-    conn = get_db(DATABASE)
 
     # collect the user inputs & insert to DB
     if request.method == 'POST':
@@ -31,7 +28,7 @@ def success():
         idea_3 = request.form["idea_3"]
 
         try:
-            # insert_to_user_query(conn, email, [idea_1, idea_2, idea_3])
+            insert_to_user_query(email, [idea_1, idea_2, idea_3])
             ranked_ideas = score_ideas([idea_1, idea_2, idea_3])
             results = google_search(ranked_ideas)
             send_email(email, name, ranked_ideas, results)
@@ -51,8 +48,5 @@ def close_connection(exception):
 
 if __name__ == '__main__':
     app.debug = True
-
-    # TODO: Enable Postgres DB
-    #create_db()
-
+    create_table()
     app.run()

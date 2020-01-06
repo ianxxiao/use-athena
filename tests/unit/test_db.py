@@ -2,7 +2,7 @@ import sys
 sys.path.append('../use-athena')
 import pytest
 from configs import db_config
-from helper import clean_db, db
+from helper import clean_db, db_tmp
 
 
 @pytest.mark.parametrize("email, ideas, db_name", [("ian.xxiao@gmail.com",
@@ -11,10 +11,10 @@ from helper import clean_db, db
 def test_db_user_query(email, ideas, db_name):
 
     # start a db
-    conn = db.get_db(db_name)
+    conn = db_tmp.get_db(db_name)
 
     # run tests
-    db.insert_to_user_query(conn, email, ideas)
+    db_tmp.insert_to_user_query(conn, email, ideas)
     num_ideas = conn.execute("select DISTINCT(query) from USER_QUERY").fetchall()
     assert len(num_ideas) == len(ideas)
 

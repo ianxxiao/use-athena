@@ -1,11 +1,11 @@
 # Athena
 **Why are we making Athena?** 
 
-As passionate bloggers, we want to write more interesting articles. But it's fustrating when we run out of edgy ideas, struggle to create punchy taglines, and not knowing how the article might do once we publish.
+As passionate, but busy, bloggers, we want to write more interesting articles. We don't lack ideas, but it's frustrating to not knowing which article to invest our time into and not having an easier way to do research.
 
 **What does Athena help with?** 
 
-Athena helps you to find better ideas, publish faster with more confidence, and discover your unique "voice".
+Athena helps you to prioritize ideas, do research, and find your unique "voice".
 
 **How does Athena work?** 
 

@@ -1,5 +1,5 @@
 from email.mime.text import MIMEText
-from configs import secret_stuff, email_config
+from athena.configs import email_config, secret_stuff
 import smtplib
 
 
@@ -10,6 +10,7 @@ def send_email(email_addr, name, ranked_ideas, results):
         email (str): email address of the recipient
         name (str): first name of the recipient
         ranked_ideas (list): a ranked list of ideas with score (highest first)
+        results (dict): a dictionary of search terms, top n results, and corresponding title and url
     '''
 
     # Get sender credential
@@ -51,9 +52,14 @@ def make_content(ranked_ideas, name, results):
         ranks += "<li> <strong>{}</strong>: {} </li> ".format(i[0], i[1])
 
     links = ""
-    for idx, i in enumerate(ranked_ideas):
-        links += "<br> Here are the top articles related to <strong>{}</strong>: <br> ".format(i[0])
-        links += "<li>{}</li> <li>{}</li> <li>{}</li> ".format(results[idx][3], results[idx][4], results[idx][5])
+    for idx, search_term in enumerate(ranked_ideas):
+        links += "<br> Here are the top articles related to <strong>{}</strong>: <br> ".format(search_term[0])
+        titles = results.get(search_term[0])
+        links += "<li><a href = {}>{}</a></li>" \
+                 "<li><a href = {}>{}</a></li>" \
+                 "<li><a href = {}>{}</a></li>".format(titles[0][0], titles[0][1],
+                                                       titles[1][0], titles[1][1],
+                                                       titles[2][0], titles[2][1])
 
     end = "<br> The Athena Score is based on trends and opportunities from various popular publication sites." \
           + "<br> Enjoy writing. See you next time. <br><br> <strong>Athena</strong>"

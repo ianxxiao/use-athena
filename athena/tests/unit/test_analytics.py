@@ -3,7 +3,7 @@ import sys
 
 sys.path.append('../use-athena')
 import pytest
-from helper.analytics import score_ideas
+from athena.helper.analytics import score_ideas
 
 
 @pytest.mark.parametrize("ideas", [["love is great", "love is boring", "love is crazy"],

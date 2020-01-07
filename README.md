@@ -1,11 +1,11 @@
 # Athena
 **Why are we making Athena?** 
 
-As passionate bloggers, we want to write more interesting articles. But it's fustrating when we run out of edgy ideas, struggle to create punchy taglines, and not knowing how the article might do once we publish.
+As passionate, but busy, bloggers, we want to write more interesting articles. We don't lack ideas, but it's frustrating to not knowing which article to invest our time into and not having an easier way to do research.
 
 **What does Athena help with?** 
 
-Athena helps you to find better ideas, publish faster with more confidence, and discover your unique "voice".
+Athena helps you to prioritize ideas, do research, and find your unique "voice".
 
 **How does Athena work?** 
 
@@ -13,12 +13,6 @@ Underneath the elegent and intuitive UI, Athena uses the most powerful Big Data,
 
 # Key Features
 **Athena Analytics** - This provides intuitive and writing-focused insights based on viral trends in your domain.
-
-![Image description](/assets/landing-page.png)
-
-In about 2 minutes, you will receive a personalized report like this:
-
-![Image description](/assets/response.PNG)
 
 **Athena Suggestions** (coming soon!) - This offers suggestions of topics for your next blog given your interest and audience. More suggestions will come later (e.g. taglines, outlines, etc.)
 
@@ -35,6 +29,13 @@ Coming soon. Sign up for our beta launch at https://athena.launchaco.com/
 Here is a link to the alpha site: https://use-athena.herokuapp.com/
 
 The alpha site include basic features. The scoring algorithm is still work-in-progress.
+
+![Image description](/athena/assets/landing-page.png)
+
+In about 2 minutes, you will receive a personalized report like this:
+
+![Image description](/athena/assets/response.PNG)
+
 
 # Build Status
 [![CircleCI](https://circleci.com/gh/ianxxiao/use-athena/tree/master.svg?style=svg)](https://circleci.com/gh/ianxxiao/use-athena/tree/master)

@@ -20,7 +20,7 @@
 #     clean_db.clean_test_db()
 #
 #     # start the database
-#     os.system("python app.py")
+#     os.system("python run.py")
 #
 #     # create a mechanize bot
 #     br = mechanize.Browser()

@@ -1,8 +1,7 @@
 import sys
 sys.path.append('../use-athena')
 import psycopg2
-from configs import db_config
-import os
+from athena.configs import db_config
 import time
 
 def create_table():

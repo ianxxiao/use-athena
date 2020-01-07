@@ -1,11 +1,9 @@
-from flask import Flask, render_template, request, g
-from configs import db_config
-from helper.db import create_table, insert_to_user_query
-from helper.send_email import send_email
-from helper.analytics import score_ideas
-from helper.google_search import google_search
-
-app = Flask(__name__)
+from flask import render_template, request, g
+from athena import app
+from athena.helper.db import insert_to_user_query
+from athena.helper.google_search import google_search
+from athena.helper.analytics import score_ideas
+from athena.helper.send_email import send_email
 
 
 @app.route("/")
@@ -42,13 +40,3 @@ def close_connection(exception):
     if cur is not None:
         print("Closing DB connection ...")
         cur.close()
-
-
-if __name__ == '__main__':
-    app.debug = True
-
-    # create postgres tables if not exist
-    create_table()
-
-    # run the web app
-    app.run()

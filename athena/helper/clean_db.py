@@ -1,7 +1,7 @@
 # this script remove all test DBs from folder to release storage
 
 import os
-import configs.db_config as config
+import athena.configs.db_config as config
 
 
 def clean_test_db(db_name):

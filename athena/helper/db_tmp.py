@@ -6,9 +6,8 @@ import sqlite3
 import os
 import time
 import psycopg2
-from configs import db_config
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
-from sqlalchemy.types import String
+
 
 def create_table():
     conn = psycopg2.connect(user=user,

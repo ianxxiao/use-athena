@@ -14,12 +14,6 @@ Underneath the elegent and intuitive UI, Athena uses the most powerful Big Data,
 # Key Features
 **Athena Analytics** - This provides intuitive and writing-focused insights based on viral trends in your domain.
 
-![Image description](/assets/landing-page.png)
-
-In about 2 minutes, you will receive a personalized report like this:
-
-![Image description](/assets/response.PNG)
-
 **Athena Suggestions** (coming soon!) - This offers suggestions of topics for your next blog given your interest and audience. More suggestions will come later (e.g. taglines, outlines, etc.)
 
 **Athena Preview** (coming soon!) - This benchmarks and predicts how well your article might do given your topic, content, and audience.
@@ -35,6 +29,13 @@ Coming soon. Sign up for our beta launch at https://athena.launchaco.com/
 Here is a link to the alpha site: https://use-athena.herokuapp.com/
 
 The alpha site include basic features. The scoring algorithm is still work-in-progress.
+
+![Image description](/assets/landing-page.png)
+
+In about 2 minutes, you will receive a personalized report like this:
+
+![Image description](/assets/response.PNG)
+
 
 # Build Status
 [![CircleCI](https://circleci.com/gh/ianxxiao/use-athena/tree/master.svg?style=svg)](https://circleci.com/gh/ianxxiao/use-athena/tree/master)

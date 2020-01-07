@@ -1,21 +1,42 @@
+import requests
+from bs4 import BeautifulSoup
 from googlesearch import search
 
+def get_title(url):
+    """
+    This function returns the title of based on HTML of a url.
+    Inputs:
+        url (str): a url string
+    Outputs:
+        title (str): the title based on HTML tag
+    """
 
-def google_search(query_list, n=10):
+    r = requests.get(url)
+    html_content = r.text
+    soup = BeautifulSoup(html_content, 'lxml')
+
+    return soup.title.string
+
+
+def google_search(query_list, n=5):
     """
     This function performs a google search and returns the top n results.
     Inputs:
-        query (list): a list of the search term
+        query (tuple): a list of the search term and score tuple (e.g. [term, score])
         n (int): the number of results
     Output:
-        top_n_results (list): a list of top n results (link and title)
+        search_results (dict): a dictionary of top n results (key: search_term, value: a list of url and titles)
     """
 
-    top_n_results = []
-    search_results = []
+    title_url = []
+    search_results = {}
+
     for query in query_list:
-        for i in search(query[0] + " Medium.com", tld="com", pause=1.0, stop=n):
-            top_n_results.append(i)
-        search_results.append(top_n_results)
-        top_n_results = []
+
+        for url in search(query[0] + " Medium.com", tld="com", pause=0.8, start=2, stop=n):
+            title_url.append([str(url), get_title(url)])
+
+        search_results[query[0]] = title_url
+        title_url = []
+
     return search_results

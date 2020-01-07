@@ -30,11 +30,11 @@ Here is a link to the alpha site: https://use-athena.herokuapp.com/
 
 The alpha site include basic features. The scoring algorithm is still work-in-progress.
 
-![Image description](/assets/landing-page.png)
+![Image description](/use_athena/assets/landing-page.png)
 
 In about 2 minutes, you will receive a personalized report like this:
 
-![Image description](/assets/response.PNG)
+![Image description](/use_athena/assets/response.PNG)
 
 
 # Build Status

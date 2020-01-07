@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 import warnings
 import re
-import configs.db_config as config
+import athena.configs.db_config as config
 import os
 
 warnings.filterwarnings("ignore")

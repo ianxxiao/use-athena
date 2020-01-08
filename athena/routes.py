@@ -23,7 +23,7 @@ def success():
         idea_2 = request.form["idea_2"]
         idea_3 = request.form["idea_3"]
     try:
-        #insert_to_user_query(email, [idea_1, idea_2, idea_3])
+        insert_to_user_query(email, [idea_1, idea_2, idea_3])
         ranked_ideas = score_ideas([idea_1, idea_2, idea_3])
         results = google_search(ranked_ideas)
         send_email(email, name, ranked_ideas, results)

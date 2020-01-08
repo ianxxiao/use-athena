@@ -1,4 +1,4 @@
-# Athena
+# Athena - the Smartest Notebook for Writers
 **Why are we making Athena?** 
 
 As passionate, but busy, bloggers, we want to write more interesting articles. We don't lack ideas, but it's frustrating to not knowing which article to invest our time into and not having an easier way to do research.

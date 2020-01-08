@@ -1,6 +1,7 @@
 from email.mime.text import MIMEText
-from athena.configs import email_config, secret_stuff
+from athena.configs import email_config
 import smtplib
+import os
 
 
 def send_email(email_addr, name, ranked_ideas, results):
@@ -14,8 +15,8 @@ def send_email(email_addr, name, ranked_ideas, results):
     '''
 
     # Get sender credential
-    from_email = secret_stuff.FROM_EMAIL
-    from_password = secret_stuff.EMAIL_PW
+    from_email = os.getenv("FROM_EMAIL")
+    from_password = os.getenv("EMAIL_PW")
     to_email = email_addr
 
     # Create email content and recipient info

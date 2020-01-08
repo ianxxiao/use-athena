@@ -41,5 +41,5 @@ Thumbs.db
 .pytest_cache
 
 # sensitive stuff
-test_email.py
+/.env
 /.google-cookie

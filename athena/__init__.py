@@ -18,7 +18,7 @@ create_table()
 # app.config['SQLALCHEMY_DATABASE_URI'] = ''
 # db = SQLAlchemy
 
-from athena import routes
+from athena import user_landing_route
 
 
 

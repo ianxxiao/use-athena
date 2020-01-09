@@ -9,7 +9,7 @@ from athena.helper.send_email import send_email
 @app.route("/")
 def index():
 
-    return render_template("index.html")
+    return render_template("search.html")
 
 
 @app.route("/success", methods=['POST'])
@@ -30,7 +30,7 @@ def success():
         return render_template("success.html")
 
     except:
-        return render_template("index.html", text="Hmm. Something went wrong. We are fixing it. Try again later?")
+        return render_template("search.html", text="Hmm. Something went wrong. We are fixing it. Try again later?")
 
 
 @app.teardown_appcontext

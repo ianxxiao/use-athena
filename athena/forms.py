@@ -17,3 +17,11 @@ class LoginForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired(), Length(min=8, max=20)])
     remember = BooleanField('Remember Me')
     submit = SubmitField('Login')
+
+
+class SearchForm(FlaskForm):
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    topic1 = StringField('topic1', validators=[DataRequired(), Length(min=2, max=100)])
+    topic2 = StringField('topic2', validators=[DataRequired(), Length(min=2, max=100)])
+    topic3 = StringField('topic3', validators=[DataRequired(), Length(min=2, max=100)])
+    submit = SubmitField('Analyze & Send Report')

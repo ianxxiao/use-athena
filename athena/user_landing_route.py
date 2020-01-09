@@ -24,9 +24,10 @@ def home():
     return render_template('home.html', posts=posts)
 
 
-@app.route("/about")
-def about():
-    return render_template('about.html', title='About')
+@app.route("/search")
+def index():
+
+    return render_template("search.html")
 
 
 @app.route("/register", methods=['GET', 'POST'])

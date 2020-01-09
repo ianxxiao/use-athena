@@ -1,6 +1,6 @@
 from athena import flask_app as app
 from flask import render_template, request, g, flash, redirect, url_for
-from athena.forms import RegistrationForm, LoginForm
+from athena.forms import RegistrationForm, LoginForm, SearchForm
 
 posts = [
     {
@@ -49,3 +49,12 @@ def login():
         else:
             flash(f'Login unsuccessful. Please check login email or password.', 'danger')
     return render_template('login.html', title='Login', form=form)
+
+
+@app.route("/search_engine", methods=['GET', 'POST'])
+def search():
+    form = SearchForm()
+    if form.validate_on_submit():
+        flash(f'Submitted. You will receive a report in your email soon.', 'success')
+        return redirect(url_for('home'))
+    return render_template('search_engine.html', title='Search', form=form)

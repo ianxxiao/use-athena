@@ -21,7 +21,7 @@ class LoginForm(FlaskForm):
 
 class SearchForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
-    topic1 = StringField('topic1', validators=[DataRequired(), Length(min=2, max=100)])
-    topic2 = StringField('topic2', validators=[DataRequired(), Length(min=2, max=100)])
-    topic3 = StringField('topic3', validators=[DataRequired(), Length(min=2, max=100)])
+    idea1 = StringField('Idea 1 (enter a topic of your interest)', validators=[DataRequired(), Length(min=2, max=100)])
+    idea2 = StringField('Idea 2 (enter a topic of your interest)', validators=[DataRequired(), Length(min=2, max=100)])
+    idea3 = StringField('Idea 3 (enter a topic of your interest)', validators=[DataRequired(), Length(min=2, max=100)])
     submit = SubmitField('Analyze & Send Report')

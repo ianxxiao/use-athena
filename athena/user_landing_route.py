@@ -46,5 +46,5 @@ def login():
             flash(f'Welcome Back. Keep Writing!', 'success')
             return redirect(url_for('home'))
         else:
-            flash(f'Please check login email or password', 'danger')
+            flash(f'Login unsuccessful. Please check login email or password.', 'danger')
     return render_template('login.html', title='Login', form=form)

@@ -15,7 +15,8 @@ flask_app = Flask(__name__)
 # set up the db tables
 create_table()
 
-# app.config['SQLALCHEMY_DATABASE_URI'] = ''
+flask_app.config['SECRET_KEY'] = '03b6642efc7533bf2aba6c155045ce3c'
+# flask_app.config['SQLALCHEMY_DATABASE_URI'] = ''
 # db = SQLAlchemy
 
 from athena import user_landing_route

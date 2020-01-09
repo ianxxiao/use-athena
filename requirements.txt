@@ -1,3 +1,4 @@
+wtforms
 pytest==5.0.1
 urllib3==1.25.6
 beautifulsoup4==4.8.1
@@ -12,3 +13,4 @@ google==2.0.3
 requests==2.22.0
 lxml==4.4.2
 python-dotenv==0.10.3
+flask-wtf-0.14.2

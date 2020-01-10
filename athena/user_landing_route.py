@@ -103,10 +103,18 @@ def reset_request():
 def reset_token(token):
     if current_user.is_authenticated:
         return redirect(url_for('home'))
+
     user = User.varify_reset_token(token)
     if not user:
         flash('That is an invalid or expired token', 'warning')
         return redirect(url_for('reset_request'))
 
     form = ResetPasswordForm()
+    if form.validate_on_submit():
+        # Write to DB
+        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        user.password = hashed_password
+        db.session.commit()
+        flash(f'Your password has been updated.', 'success')
+        return redirect(url_for('login'))
     return render_template('reset_token.html', title='Reset Password', form=form)

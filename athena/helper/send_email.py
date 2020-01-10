@@ -2,6 +2,7 @@ from email.mime.text import MIMEText
 from athena.configs import email_config
 import smtplib
 import os
+from flask import url_for
 
 
 def send_email(email_addr, name, ranked_ideas, results):
@@ -45,7 +46,7 @@ def make_content(ranked_ideas, name, results):
     """
 
     introduction = "Hiya {}, this is Athena. Here is what I think of your ideas based on my Athena Score (alpha). " \
-                   "The Athena Score is based on trends and opportunities from various popular publication sites.<br>"\
+                   "The Athena Score is based on trends and opportunities from various popular publication sites.<br>" \
         .format(name)
 
     ranks = ""
@@ -66,5 +67,31 @@ def make_content(ranked_ideas, name, results):
           + "<br> Enjoy writing. See you next time. <br><br> <strong>Athena</strong>"
 
     msg_str = introduction + ranks + links + end
+
+    return MIMEText(msg_str, 'html')
+
+
+def send_password_reset(user):
+    # Get sender credential
+    from_email = os.getenv("FROM_EMAIL")
+    from_password = os.getenv("EMAIL_PW")
+    to_email = user.email
+
+    # Create email content and recipient info
+    msg = make_reset_content(user.get_reset_token())
+    msg['Subject'] = 'Athena | Password Reset - Do not Reply'
+    msg['To'] = to_email
+    msg['From'] = from_email
+
+    # send the email
+    gmail = smtplib.SMTP(email_config.EMAIL_SERVER, email_config.EMAIL_SERVER_PORT)
+    gmail.ehlo()
+    gmail.starttls()
+    gmail.login(from_email, from_password)
+    gmail.send_message(msg)
+
+
+def make_reset_content(token):
+    msg_str = "this your password reset link: {}".format(url_for('reset_token', token=token, _external=True))
 
     return MIMEText(msg_str, 'html')

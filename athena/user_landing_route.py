@@ -1,9 +1,10 @@
 from athena import flask_app as app
 from athena import db, bcrypt
 from flask import render_template, request, g, flash, redirect, url_for
-from athena.forms import RegistrationForm, LoginForm, SearchForm
+from athena.forms import RegistrationForm, LoginForm, SearchForm, RequestResetForm, ResetPasswordForm
 from athena.db_models import User, Post
 from flask_login import login_user, logout_user, current_user, login_required
+from athena.helper import send_email
 
 posts = [
     {
@@ -84,3 +85,28 @@ def logout():
     logout_user()
     flash(f'You are logged out.', 'success')
     return redirect(url_for('home'))
+
+@app.route("/reset_password", methods=['GET', 'POST'])
+def reset_request():
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
+    form = RequestResetForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
+        send_email.send_password_reset(user)
+        flash('An email has been sent with a link to reset password. Please check spam if you do not receive it in 10 minutes', 'success')
+        return redirect(url_for('login'))
+    return render_template('reset_request.html', title='Reset Password', form=form)
+
+
+@app.route("/reset_password/<token>", methods=['GET', 'POST'])
+def reset_token(token):
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
+    user = User.varify_reset_token(token)
+    if not user:
+        flash('That is an invalid or expired token', 'warning')
+        return redirect(url_for('reset_request'))
+
+    form = ResetPasswordForm()
+    return render_template('reset_token.html', title='Reset Password', form=form)

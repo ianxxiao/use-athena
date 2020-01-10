@@ -3,6 +3,7 @@ from athena import db, bcrypt
 from flask import render_template, request, g, flash, redirect, url_for
 from athena.forms import RegistrationForm, LoginForm, SearchForm
 from athena.db_models import User, Post
+from flask_login import login_user, current_user
 
 posts = [
     {
@@ -34,6 +35,9 @@ def index():
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
+
     form = RegistrationForm()
     if form.validate_on_submit():
         # Write to DB
@@ -48,10 +52,16 @@ def register():
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
+
     form = LoginForm()
     if form.validate_on_submit():
-        if form.email.data == 'admin@athena.com' and form.password.data == 'password123':
-            flash(f'Welcome Back. Keep Writing!', 'success')
+        user = User.query.filter_by(email=form.email.data).first()
+
+        # check if user exist and password match
+        if user and bcrypt.check_password_hash(user.password, form.password.data):
+            login_user(user, remember=form.remember.data)
             return redirect(url_for('home'))
         else:
             flash(f'Login unsuccessful. Please check login email or password.', 'danger')

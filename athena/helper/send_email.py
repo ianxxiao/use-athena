@@ -21,7 +21,7 @@ def send_email(email_addr, name, ranked_ideas, results):
     to_email = email_addr
 
     # Create email content and recipient info
-    msg = make_content(ranked_ideas, name, results)
+    msg = make_report_content(ranked_ideas, name, results)
     msg['Subject'] = email_config.EMAIL_SUBJECT
     msg['To'] = to_email
     msg['From'] = from_email
@@ -34,7 +34,7 @@ def send_email(email_addr, name, ranked_ideas, results):
     gmail.send_message(msg)
 
 
-def make_content(ranked_ideas, name, results):
+def make_report_content(ranked_ideas, name, results):
     """
     This function create email content based on the ranked ideas and placeholder.
     Inputs:
@@ -92,6 +92,8 @@ def send_password_reset(user):
 
 
 def make_reset_content(token):
-    msg_str = "this your password reset link: {}".format(url_for('reset_token', token=token, _external=True))
+    msg_str = "this your password reset link: <br><br>" \
+              "{} <br><br>" \
+              "If you didn't request this, please ignore.".format(url_for('reset_token', token=token, _external=True))
 
     return MIMEText(msg_str, 'html')

@@ -23,7 +23,7 @@ flask_app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@lo
 db = SQLAlchemy(flask_app)
 bcrypt = Bcrypt(flask_app)
 login_manager = LoginManager(flask_app)
-
+login_manager.login_view = "login"
 
 from athena import user_landing_route
 

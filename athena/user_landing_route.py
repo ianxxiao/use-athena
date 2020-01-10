@@ -2,6 +2,7 @@ from athena import flask_app as app
 from athena import db, bcrypt
 from flask import render_template, request, g, flash, redirect, url_for
 from athena.forms import RegistrationForm, LoginForm, SearchForm
+from athena.models import User, Post
 
 posts = [
     {

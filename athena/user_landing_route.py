@@ -3,7 +3,7 @@ from athena import db, bcrypt
 from flask import render_template, request, g, flash, redirect, url_for
 from athena.forms import RegistrationForm, LoginForm, SearchForm
 from athena.db_models import User, Post
-from flask_login import login_user, current_user
+from flask_login import login_user, logout_user, current_user
 
 posts = [
     {
@@ -75,3 +75,10 @@ def search():
         flash(f'Submitted. You will receive a report in your email soon.', 'success')
         return redirect(url_for('home'))
     return render_template('search_engine.html', title='Search', form=form)
+
+
+@app.route("/logout")
+def logout():
+    logout_user()
+    flash(f'You are logged out.', 'success')
+    return redirect(url_for('home'))
